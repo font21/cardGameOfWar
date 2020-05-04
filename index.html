@@ -3,11 +3,12 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/headerStyle.css">
+	<link rel="stylesheet" href="css/headerStyle.css">
+	<link rel="stylesheet" href="css/cardLogicStyle.css">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <script src="app/jquery-3.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous" defer="defer"></script>
     <script src="app/app.js" defer="defer"></script>
-    <title>SEIR NOVA</title>
+    <title>Card Game of War</title>
 </head>
 <body data-gr-c-s-loaded="true">
 <div id="root">
@@ -32,16 +33,26 @@
             <div class="header__text-box"><h1 class="heading-primary"><span class="heading-primary--main">SEIR NOVA</span><span class="heading-primary--sub">is where prosperity happens<br>coming soon...</span>
             </h1><a class="btn btn--white btn--animated">Discover NOVA</a></div>
         </header>
-
-    <div class="card-container">
-		<div class="card">
-			<div class="card__value">
-				The content starts here.
+		<content>
+			<div class="card-container">
+				<div class="card">
+					<div class="card__value">
+						<div class="deck">
+							<h1>A Deck of Cards</h1>
+					
+							<a href="javascript:void(0)" class="btn" onclick="shuffle()">Shuffle</a>
+							<div id="deck"></div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-
-
-
+		</content>
+		<footer>
+			<div>
+				Card Game of War by David Fontenot for General Assembly Software Engineering Immersive Remote 413 cohort
+				<br />
+				CopyLeft (c) 2020
+			</div>
+		</footer>
 	</body>
 </html>

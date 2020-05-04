@@ -1,0 +1,7 @@
+<link href="https://fonts.googleapis.com/css?family=Astloch&display=swap" rel="stylesheet">
+font-family: 'Astloch', cursive;
+
+
+<link href="https://fonts.googleapis.com/css?family=Asset&display=swap" rel="stylesheet">
+font-family: 'Asset', cursive;
+

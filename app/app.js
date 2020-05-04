@@ -1,20 +1,24 @@
-console.log('oooooh thats how you do it')
-$(()=> {
-    const $cardContainer = $('<div class="card-container">');
-    $('#root > .app').append($cardContainer);
+console.log('JavaScript connected.')
 
+// Setup the groups of card parts and shove them into an aray
+	// Source: https://en.wikipedia.org/wiki/Standard_52-card_deck
+	const suitsArray = ['&diams;', '&hearts;', '&spades;', '&clubs;'];
 
-    $.ajax({
-        url:'https://www.omdbapi.com/?apikey=53aa2cd6&s=Spiderman'
-      }).then(
-        (data) => {
-          data.Search.forEach((el)=> {
-            const $card = $(`<div class="card"><div class="card__value"><img src="https://picsum.photos/200"><h1>${el.Title}</h1><h2>${el.Year}</h2><h2>${el.Type}</h2> <br/></div><hr></div>`);
-            $cardContainer.append($card)
-          })
-        },
-        ()=> {
-          console.log('this isnt SPARTA');
-        }
-      );
-})
+	const rankArray = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+	const cardDeckArray = [];
+
+// Function to create an new array with cards as objects
+	function deckGenerator() {
+		for ( let i = 0; i < rankArray.length; i++ ) {
+			for (let x = 0;  x < suitsArray.length; x++) {
+				let cardObj = {Value: suitsArray[x], Suit: rankArray[i]};
+				cardDeckArray.push(cardObj);			
+			}
+		}
+		return cardDeckArray;
+	}
+
+// Function to shuffle a bazillion times.
+	function shuffleCards() {
+	}
