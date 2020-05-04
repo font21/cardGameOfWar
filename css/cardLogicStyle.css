@@ -1,13 +1,13 @@
 /* body {
-	background-color: green;
+	background-color: #008000;
 }
 */
 
 .deck
 {
-	width:50%;
+	width:80%;
 	margin: 20px auto;
-	background:dodgerblue;
+	background:#008000;
 	border:solid 10px black;
 	padding: 10px;
 	border-radius:10px;
