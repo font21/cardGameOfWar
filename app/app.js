@@ -3,7 +3,6 @@ console.log('JavaScript connected.')
 // Setup the groups of card parts and shove them into an aray
 	// Source: https://en.wikipedia.org/wiki/Standard_52-card_deck
 	const suitsArray = ['&diams;', '&hearts;', '&spades;', '&clubs;'];
-
 	const rankArray = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
 	const cardDeckArray = [];
@@ -21,4 +20,15 @@ console.log('JavaScript connected.')
 
 // Function to shuffle a bazillion times.
 	function shuffleCards() {
+		for (let i = 0; i < 999; i++) {
+			let CardPositionOne = Math.floor((Math.random() * cardDeckArray.length));
+			let CardPositionTwo = Math.floor((Math.random() * cardDeckArray.length));
+			
+			let CardPositionThree = cardDeckArray[CardPositionTwo];
+			
+			cardDeckArray[CardPositionOne] = cardDeckArray[CardPositionTwo];
+			cardDeckArray[CardPositionTwo] = CardPositionThree;
+		}
+
+
 	}
