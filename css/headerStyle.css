@@ -188,7 +188,7 @@ body {
     position: fixed;
     top: 6.5rem;
     right: 6.5rem;
-    background-image: radial-gradient(#fdf, #9932CC);
+    background-image: radial-gradient#f3c620, #f3c620, #f3c620, #f3c620, #907100);
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
 

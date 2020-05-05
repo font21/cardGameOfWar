@@ -1,22 +1,21 @@
-/* body {
-	background-color: #008000;
-}
-*/
-
-.deck
-{
+.deck {
 	width:80%;
 	margin: 20px auto;
-	background:#008000;
+	background:#001380;
 	border:solid 10px black;
 	padding: 10px;
 	border-radius:10px;
 	text-align: center;
 	color:white;
 }
+/*
+#deck {
+	display: flex;
+	flex-wrap: wrap;
+}
+*/
 
-.card
-{
+.card {
 	padding: 10px;
 	border: solid 1px #808080;
 	background-color: white;
@@ -26,41 +25,34 @@
 	text-align: center;
 	color:black;
 	margin: 3px;
+	width: 50px;
+	height: 100px;
+	font-family: 'Cinzel Decorative', cursive;
 }
 
-.btn
-{
+.btn {
 	background:white;
 	padding: 10px 20px;
 	border-radius:30px;
 	margin: 10px;
-	display:inline-block;
+	display: inline-block;
 }
 
-.card .value{
+.card .TopValue {
+	position: left;
+	font-size:25pt;
+	width: 50px;
+	font-family: 'Cinzel Decorative', cursive;
+}
+
+.card .botValue {
+	position: right;
 	font-size:15pt;
-	font-family: sans-serif;
+	width: 50px;
+	font-family: 'Cinzel Decorative', cursive;	
 }
 
-.card .suit
-{
-	background-image: url('card.png');
+.card .suit {
 	height: 100px;
 	width: 90px;
-}
-
-.card .diamonds
-{
-	background-position-y: 100px;
-}
-
-.card .hearts
-{
-	background-position-x: 90px;
-}
-
-.card .clubs
-{
-	background-position-x:90px;
-	background-position-y:100px;
 }

@@ -10,9 +10,12 @@ console.log('JavaScript connected.')
 
 // Function to create an new array with cards as objects
 	deckGenerator = () => {
-		for ( let iti = 0; iti < rankArray.length; iti++ ) {
-			for (let ity = 0;  ity < suitsArray.length; ity++) {
-				let cardObj = {Value: suitsArray[ity], Suit: rankArray[iti]};
+		for ( let iSuit = 0; iSuit < suitsArray.length; iSuit++ ) {
+
+			for (let iRank = 0;  iRank < rankArray.length; iRank++) {
+
+				let cardObj = {Value: rankArray[iRank], Suit: suitsArray[iSuit]};
+
 				cardDeckArray.push(cardObj);
 			}
 		}
@@ -24,56 +27,55 @@ console.log('JavaScript connected.')
 // Function to render the card deck
 	renderDeck = () => {
 
-		document.getElementById('deck').innerHTML = '';
+		
+		let $deck = $('#deck');
+		$deck.children().remove();
 		for (let itw = 0; itw < cardDeckArray.length; itw++) {
 
-			let card = document.createElement("div");
-			let value = document.createElement("div");
-			let suit = document.createElement('div');
+			let $card = $("<div>").addClass("card");
+			
+			let $topValue = $("<div>").addClass("value").html(cardDeckArray[itw].Value).appendTo($card);
+			
+			let $suit = $("<div>").addClass("suit" + deck[itw].suit).html(cardDeckArray[itw].Suit).appendTo($card);
+			
+			let $botValue = $("<div>").addClass("value").html(cardDeckArray[itw].Value).appendTo($card);
 
-			card.className = "card";
-			value.className = "value";
-			suit.className = 'suit' + deck[itw].suit;
-
-			value.innerHTML = cardDeckArray[itw].Value;
-			card.appendChild(value);
-			card.appendChild(suit);
-
-			document.getElementById("deck").appendChild(card);
+			// https://api.jquery.com/append/
+			// $deck.append( $card, [$topValue, $suit, $botValue] );
+			$deck.append( $card );
 		}
 	}
 
 
 
 // Function to shuffle a bazillion times.
-	shuffleCards = () => {
-		// Work through cardDeckArray grabbing two random cards and swapping them for 999.
-		for (let itz = 0; itz < 1000; itz++) {
-			let CardPositionOne = Math.floor((Math.random() * cardDeckArray.length));
-			let CardPositionTwo = Math.floor((Math.random() * cardDeckArray.length));
-			
-			let CardPositionThree = cardDeckArray[CardPositionTwo];
-			
-			cardDeckArray[CardPositionOne] = cardDeckArray[CardPositionTwo];
-			cardDeckArray[CardPositionTwo] = CardPositionThree;
+	function shuffleCards() {
+		{
+			cardDeckArray.sort(() => Math.random() - 0.5);
+			cardDeckArray.sort(() => Math.random() - 0.5);
+			cardDeckArray.sort(() => Math.random() - 0.5);
+		/* My second attempt at finding a way to randomize the cardDeckArray
+		OR shuffle the deck of cards.
+		Source:
+		https://javascript.info/task/shuffle
+		*/
 		}
-		/* renderDeck(); */
 	}
 
-// Do things Functions
-	function PageloadFunction() {
+
+
+
+	pageLoad = () => {
 		deck = deckGenerator();
 		shuffleCards();
 		renderDeck();
 		console.log(cardDeckArray);
 	}
 
-
-	function buttonPressFunction() {
+	buttonPressFunction = () => {
 		shuffleCards();
 		renderDeck();
 		console.log(cardDeckArray);
 	}
 
-
-	window.onload = PageloadFunction;
+	window.onload = pageLoad;
