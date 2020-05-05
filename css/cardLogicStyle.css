@@ -40,25 +40,25 @@
 
 .card .topRank {
 	position: left;
-	font-size:25pt;
+	font-size: 25pt;
 	width: 50px;
+	display: block;
 	font-family: 'Cinzel Decorative', cursive;
 }
 
+.suit {
+	font-size: 50pt;
+	display: block;
+	transform: scale(4, 4) scaleX(4) scaleY(4);
+	background-color: rgb(195, 104, 51);
+}
+
 .card .botRank {
-	position: right;
-	font-size:15pt;
+	float: right;
+	font-size: 25pt;
 	width: 50px;
-	font-family: 'Cinzel Decorative', cursive;	
+	display: block;
+	font-family: 'Cinzel Decorative', cursive;
+	transform:rotate(180deg);
 }
 
-.card .suit {
-	font-size:25pt;
-	height: 120px;
-	width: 120px;
-
-	/*
-	height: 100px;
-	width: 90px;
-	*/
-}

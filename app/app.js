@@ -65,9 +65,11 @@ console.log('JavaScript connected.')
 			
 			let $botRank = $("<div>").addClass("botRank").html(cardDeckArray[iRendr].Rank).appendTo($card);
 
+			$deck.append( $card );
+
+			// Attempt to append topRank, suit, and botRank to card, before appending to the Deck.
 			// https://api.jquery.com/append/
 			// $deck.append( $card, [$topRank, $suit, $botRank] );
-			$deck.append( $card );
 		}
 	}
 
