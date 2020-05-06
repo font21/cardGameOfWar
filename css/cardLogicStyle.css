@@ -1,3 +1,17 @@
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+	background: #05532c;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #35654d, #05532c, #05532c, #8b0000, #05532c, #05532c, #35654d);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #35654d, #05532c, #05532c, #8b0000, #05532c, #05532c, #35654d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	padding: 3rem;
+}
+
+.header {
+	text-align: center;
+}
+
 .deck {
 	width:80%;
 	margin: 20px auto;
@@ -8,57 +22,112 @@
 	text-align: center;
 	color:white;
 }
-/*
-#deck {
-	display: flex;
-	flex-wrap: wrap;
-}
-*/
 
-.btn {
-	background:white;
-	padding: 10px 20px;
-	border-radius:30px;
-	margin: 10px;
-	display: inline-block;
-}
+
 
 .card {
-	padding: 10px;
+	padding: 7px;
+	margin: 3px;
+	color:black;
+	width: 60px;
+	height: 96px;
 	border: solid 1px #808080;
 	background-color: white;
-	display: inline-block;
 	border-radius: 10px;
-	font-size: 14pt;
-	text-align: center;
-	color:black;
-	margin: 3px;
-	width: 110px;
-	height: 160px;
+	display: inline-block;
 	font-family: 'Cinzel Decorative', cursive;
 }
 
 .card .topRank {
 	position: left;
-	font-size: 25pt;
-	width: 50px;
+	text-align: left;
+	font-size: 1.5rem;
 	display: block;
 	font-family: 'Cinzel Decorative', cursive;
 }
 
-.suit {
+.card .suit {
 	font-size: 50pt;
 	display: block;
+	font-size: large;
 	transform: scale(4, 4) scaleX(4) scaleY(4);
 	background-color: rgb(195, 104, 51);
 }
 
 .card .botRank {
 	float: right;
-	font-size: 25pt;
-	width: 50px;
+	font-size: 1.1rem;
 	display: block;
 	font-family: 'Cinzel Decorative', cursive;
 	transform:rotate(180deg);
 }
 
+
+/* =====================================
+==========================================
+==		Button			==================
+==========================================
+  =====================================*/
+
+ .btn {
+	background:black;
+	padding: 10px 20px;
+	border-radius:30px;
+	margin: 10px;
+	display: inline-block;
+}
+
+.btn, .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.6rem;
+    border: none;
+    cursor: pointer; }
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+	opacity: 0;
+}
+
+.btn:active, .btn:focus {
+    outline: none;
+    transform: translateY(-1px);
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn--white {
+    background-color: #ffffff;
+	color: #777;
+}
+
+.btn--white::after {
+	background-color: #fff;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+	transition: all .4s;
+}
+
+.btn--animated {
+    animation: moveInBottom .5s ease-out .75s;
+	animation-fill-mode: backwards;
+}

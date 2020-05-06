@@ -1,10 +1,10 @@
 console.log('JavaScript connected.')
 
-/* =====================================
-==========================================
-==		Arrays and game options		======
-==========================================
-  =====================================*/
+/* =================================================
+======================================================
+==		Arrays and game options		==================
+======================================================
+  =================================================*/
 
 // Setup the groups of card parts and shove them into an aray
 	// Source: https://en.wikipedia.org/wiki/Standard_52-card_deck
@@ -23,11 +23,11 @@ console.log('JavaScript connected.')
 		var player1Score = 0;
 		var player2Score = 0;
 
-/* =====================================
-==========================================
-==		Functions		==================
-==========================================
-  =====================================*/
+/* =================================================
+======================================================
+==		Main Functions		==========================
+======================================================
+  ================================================ */
 
 // Function to create an array of objects as cards
 	deckGenerator = () => {
@@ -44,26 +44,27 @@ console.log('JavaScript connected.')
 				cardDeckArray.push(cardObj);
 			}
 		}
-		console.log('Initial cardDeckArray: \n\n' + cardDeckArray);
+		console.log('Initial cardDeckArray: \n\n' + JSON.stringify(cardDeckArray));
 		return cardDeckArray;
 	}
 
 
 
 // Function to render the card deck
-	renderDeck = () => {
+	renderDeck = (renderInputArray) => {
 		
+		// assign jQuery object
 		let $deck = $('#deck');
 		$deck.children().remove();
-		for (let iRendr = 0; iRendr < cardDeckArray.length; iRendr++ ) {
+		for (let iRendr = 0; iRendr < renderInputArray.length; iRendr++ ) {
 
 			let $card = $("<div>").addClass("card");
 			
-			let $topRank = $("<div>").addClass("topRank").html(cardDeckArray[iRendr].Rank).appendTo($card);
+			let $topRank = $("<div>").addClass("topRank").html(renderInputArray[iRendr].Rank).appendTo($card);
 			
-			let $suit = $("<div>").addClass("suit" + deck[iRendr].suit).html(cardDeckArray[iRendr].Suit).appendTo($card);
+			let $suit = $("<div>").addClass("suit" + deck[iRendr].suit).html(renderInputArray[iRendr].Suit).appendTo($card);
 			
-			let $botRank = $("<div>").addClass("botRank").html(cardDeckArray[iRendr].Rank).appendTo($card);
+			let $botRank = $("<div>").addClass("botRank").html(renderInputArray[iRendr].Rank).appendTo($card);
 
 			$deck.append( $card );
 
@@ -87,39 +88,41 @@ console.log('JavaScript connected.')
 	}
 
 // Function to deal cards into two (player 1's and player 2's) arrays
-	dealFunction = () => {
-		for ( let iDeal = 0; iDeal < cardDeckArray.length; iDeal++ ) {
-			player1HandArray.push(cardDeckArray[iDeal]);
-			player2HandArray.push(cardDeckArray[iDeal]);
+	dealCardsFunction = (dealInputArray, player1ExportArray, player2ExportArray) => {
+		for ( let iDeal = 0; iDeal < dealInputArray.length; iDeal++ ) {
+			player1ExportArray.push(dealInputArray[iDeal]);
+			player2ExportArray.push(dealInputArray[iDeal]);
 
-			console.log(player1HandArray);
-			console.log(player2HandArray);
+			console.log(player1ExportArray);
+			console.log(player2ExportArray);
+
+			return;
 		}
 	}
 
-/* =====================================
-==========================================
-==	sub-Function that action and Button Presses
-==========================================
-  =====================================*/
+/* =================================================
+======================================================
+==	sub-Function that action and Button Presses		==
+======================================================
+  ================================================ */
 
 // on page load Function that Generates the Deck, shuffles those cards and Displays them.
 	pageLoad = () => {
 		deck = deckGenerator();
 		shuffleCards(cardDeckArray);
-		renderDeck();
+		renderDeck(cardDeckArray);
 		console.log('pageLoad() ran.');
 	}
 
 // Same as page load but without deck setup
 	buttonPressFunction = () => {
 		shuffleCards(cardDeckArray);
-		renderDeck();
+		renderDeck(cardDeckArray);
 		console.log('buttonPressFunction() ran.');
 	}
 
 	playWithYourself = () => {
-		dealCardsFunction();
+		dealCardsFunction(cardDeckArray, player1HandArray, player2HandArray);
 	}
 
 // When page loads, run initial setup stuffs
